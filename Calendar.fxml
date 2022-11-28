@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="application.CalendarController">
+   <children>
+      <Group layoutY="50.0">
+         <children>
+            <Pane prefHeight="50.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="50.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="18.0" layoutY="11.0" text="Sunday" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="100.0" prefHeight="50.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="50.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="15.0" layoutY="12.0" text="Monday" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="200.0" prefHeight="50.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="50.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="15.0" layoutY="12.0" text="Tuesday" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="300.0" prefHeight="50.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="50.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="1.0" layoutY="12.0" text="Wednesday" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="400.0" prefHeight="50.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="50.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="11.0" layoutY="12.0" text="Thursday" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="500.0" prefHeight="50.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="50.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="24.0" layoutY="12.0" text="Friday" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="600.0" prefHeight="50.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="50.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="15.0" layoutY="11.0" text="Saturday" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Group>
+      <VBox layoutY="100.0" prefHeight="600.0" prefWidth="100.0">
+         <children>
+            <Pane fx:id="D1" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D8" layoutX="10.0" layoutY="10.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D15" layoutX="10.0" layoutY="110.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D22" layoutX="10.0" layoutY="210.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D29" layoutX="10.0" layoutY="310.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D36" layoutX="10.0" layoutY="410.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <VBox layoutX="100.0" layoutY="100.0" prefHeight="600.0" prefWidth="100.0">
+         <children>
+            <Pane fx:id="D2" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D9" layoutX="10.0" layoutY="10.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D16" layoutX="10.0" layoutY="110.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D23" layoutX="10.0" layoutY="210.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D30" layoutX="10.0" layoutY="310.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D37" layoutX="10.0" layoutY="410.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <VBox layoutX="200.0" layoutY="100.0" prefHeight="600.0" prefWidth="100.0">
+         <children>
+            <Pane fx:id="D3" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D10" layoutX="10.0" layoutY="10.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D17" layoutX="10.0" layoutY="110.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D24" layoutX="10.0" layoutY="210.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D31" layoutX="10.0" layoutY="310.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D38" layoutX="10.0" layoutY="410.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <VBox layoutX="300.0" layoutY="100.0" prefHeight="600.0" prefWidth="100.0">
+         <children>
+            <Pane fx:id="D4" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D11" layoutX="10.0" layoutY="10.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D18" layoutX="10.0" layoutY="110.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D25" layoutX="10.0" layoutY="210.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D32" layoutX="10.0" layoutY="310.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D39" layoutX="10.0" layoutY="410.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <VBox layoutX="400.0" layoutY="100.0" prefHeight="600.0" prefWidth="100.0">
+         <children>
+            <Pane fx:id="D5" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D12" layoutX="10.0" layoutY="10.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D19" layoutX="10.0" layoutY="110.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D26" layoutX="10.0" layoutY="210.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D33" layoutX="10.0" layoutY="310.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D40" layoutX="10.0" layoutY="410.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <VBox layoutX="500.0" layoutY="100.0" prefHeight="600.0" prefWidth="100.0">
+         <children>
+            <Pane fx:id="D6" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D13" layoutX="10.0" layoutY="10.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D20" layoutX="10.0" layoutY="110.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D27" layoutX="10.0" layoutY="210.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D34" layoutX="10.0" layoutY="310.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D41" layoutX="10.0" layoutY="410.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <VBox layoutX="600.0" layoutY="100.0" prefHeight="600.0" prefWidth="100.0">
+         <children>
+            <Pane fx:id="D7" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D14" layoutX="10.0" layoutY="10.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D21" layoutX="10.0" layoutY="110.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D28" layoutX="10.0" layoutY="210.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D35" layoutX="10.0" layoutY="310.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="D42" layoutX="10.0" layoutY="410.0" onMouseClicked="#OpenDayInfo" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fill="#1f93ff00" height="100.0" stroke="BLACK" width="100.0" />
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="-2.0" text="1" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <Label fx:id="MonthLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="12.5" layoutY="10.0" text="Month" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="PrevMonthBtn" layoutX="209.0" layoutY="10.0" mnemonicParsing="false" onAction="#PrevMonth" text="&lt;">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="NextMonthBtn" layoutX="262.0" layoutY="10.0" mnemonicParsing="false" onAction="#NextMonth" text="&gt;">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Pane fx:id="EventPanel" layoutX="400.0" prefHeight="700.0" prefWidth="300.0" visible="false">
+         <children>
+            <Rectangle fill="#e2e2e2" height="700.0" stroke="BLACK" width="300.0" />
+            <Accordion fx:id="EventList" layoutY="50.0" prefHeight="650.0" prefWidth="300.0" />
+            <Button fx:id="ClosePanelBtn" layoutX="10.0" layoutY="5.0" mnemonicParsing="false" onAction="#CloseDayInfo" text="X">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="AddEventBtn" layoutX="260.0" layoutY="5.0" mnemonicParsing="false" onAction="#AddEvent" text="+">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
