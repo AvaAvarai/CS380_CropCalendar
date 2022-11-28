@@ -1,4 +1,4 @@
-package calendar;
+package application;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
@@ -103,6 +104,12 @@ public class CalendarController {
 	// The panel that lists the events of the selected day
 	@FXML
 	private Pane EventPanel;
+	// The panel used to log in
+	@FXML
+	private Pane LoginPanel;
+	// The panel used to register
+	@FXML
+	private Pane RegisterPanel;
 	
 	// The object within the panel that stores the events
 	@FXML
@@ -111,6 +118,12 @@ public class CalendarController {
 	// The label indicating which month is being displayed
 	@FXML
 	private Label MonthLabel;
+	// The label indicating if a login was successful
+	@FXML
+	private Label LoginStatus;
+	// The label indicating if a register was successful
+	@FXML
+	private Label RegisterStatus;
 	
 	// The buttons for changing the displayed month
 	@FXML
@@ -123,6 +136,26 @@ public class CalendarController {
 	// The button to add an event
 	@FXML
 	private Button AddEventBtn;
+	// The button to attempt a login
+	@FXML
+	private Button LoginBtn;
+	// The button to attempt a register
+	@FXML
+	private Button RegisterBtn;
+	
+	// TextField for the login username input
+	@FXML
+	private TextField LoginUser;
+	// TextField for the register username input
+	@FXML
+	private TextField RegisterUser;
+	
+	// TextField for the login password input
+	@FXML
+	private PasswordField LoginPass;
+	// TextField for the register password input
+	@FXML
+	private PasswordField RegisterPass;
 	
 	// Display previous month
 	public void PrevMonth (ActionEvent event) {
@@ -146,6 +179,16 @@ public class CalendarController {
 	
 	// Adds an event to the selected day
 	public void AddEvent (ActionEvent event) {
+		
+	}
+	
+	// Register an account
+	public void Register (ActionEvent event) throws Exception {
+		
+	}
+	
+	// Login to an account
+	public void Login (ActionEvent event) throws Exception {
 		
 	}
 	
