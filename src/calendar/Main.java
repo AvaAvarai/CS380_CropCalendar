@@ -10,8 +10,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/calendar/Main.fxml"));
-			Scene scene = new Scene(root,640,480);
+			Parent root = FXMLLoader.load(getClass().getResource("/calendar/Calendar.fxml"));
+			Scene scene = new Scene(root,700,700);
 			scene.getStylesheets().add(getClass().getResource("calendar.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
