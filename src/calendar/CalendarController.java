@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
 
 import javafx.collections.ObservableList;
@@ -109,7 +110,7 @@ public class CalendarController {
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmers", "root", "cs380");
 			
-			// need to add a select query first to check for existence of user to conditionally registering user
+			// NEED TO UPDATE THIS
 			
 			String query = "UPDATE ? from farmer where pass=?;";
 			
@@ -130,32 +131,48 @@ public class CalendarController {
 		} catch (SQLException exception) {
 			System.out.println("Error while connecting to the database");
 		}
+		
+			// END NEED TO UPDATE SECTION
 	}
 	
 	// Login to an account
 	public void Login (ActionEvent event) throws Exception {
 		try {
+			// open connection
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmers", "root", "cs380");
 			
-			String query = "SELECT * from farmer where pass=?;";
+			// select users
+			String query = "SELECT * FROM farmer";
 			
-			PreparedStatement ps = connection.prepareStatement(query);
+			// prepare statement
+			Statement st = connection.createStatement();
+			ResultSet rs = st.executeQuery(query);
 			
-			ps.setString(1, User.getText());
-			
-			ResultSet rs = ps.executeQuery();
-			
+			// compare email/pass pairs
 			while (rs.next()) {
-				if (rs.getString("pass").equals(Pass.getText())) {
-					Status.setText("Login Success!");
+				String email = rs.getString("email");
+				String password = rs.getString("pass");
+				
+				// user found
+				if (User.getText().equals(email) && Pass.getText().equals(password)) {
+					connection.close();
+					Status.setText("Success");
 					LoginPanel.setVisible(false);
+					return;
 				}
 			}
+			
+            // no user found
+			Status.setText("Invalid Credentials");
 			rs.close();
-			ps.close();
+			st.close();
+			connection.close();
 			
 		} catch (SQLException exception) {
 			System.out.println("Error while connecting to the database");
+			exception.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
