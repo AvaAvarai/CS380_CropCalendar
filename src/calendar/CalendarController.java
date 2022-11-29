@@ -109,18 +109,18 @@ public class CalendarController {
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmers", "root", "cs380");
 			
+			// need to add a select query first to check for existence of user to conditionally registering user
+			
 			String query = "UPDATE ? from farmer where pass=?;";
 			
 			PreparedStatement ps = connection.prepareStatement(query);
 			
 			ps.setString(1, User.getText());
 			
-			System.out.println(ps.toString());
-			
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				if (rs.getString("password").equals(Pass.getText())) {
+				if (rs.getString("name").equals(Pass.getText())) {
 					Status.setText("Register Success!");
 				}
 			}
@@ -143,12 +143,10 @@ public class CalendarController {
 			
 			ps.setString(1, User.getText());
 			
-			System.out.println(ps.toString());
-			
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				if (rs.getString("password").equals(Pass.getText())) {
+				if (rs.getString("pass").equals(Pass.getText())) {
 					Status.setText("Login Success!");
 				}
 			}
