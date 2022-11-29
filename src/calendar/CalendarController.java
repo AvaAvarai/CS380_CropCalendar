@@ -4,13 +4,11 @@ import javafx.fxml.FXML;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Accordion;
@@ -108,31 +106,43 @@ public class CalendarController {
 	// Register an account
 	public void Register (ActionEvent event) throws Exception {
 		try {
+			// open connection
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmers", "root", "cs380");
 			
-			// NEED TO UPDATE THIS
-			
-			String query = "UPDATE ? from farmer where pass=?;";
-			
-			PreparedStatement ps = connection.prepareStatement(query);
-			
-			ps.setString(1, User.getText());
-			
-			ResultSet rs = ps.executeQuery();
+			// check for former user
+			String query = "SELECT * FROM farmer";
+
+			// prepare statement
+			Statement st = connection.createStatement();
+			ResultSet rs = st.executeQuery(query);
 			
 			while (rs.next()) {
-				if (rs.getString("name").equals(Pass.getText())) {
-					Status.setText("Register Success!");
+				String email = rs.getString("email");
+				
+				if (User.getText().equals(email)) {
+					Status.setText("User already exists");
+					return;
 				}
 			}
+			
 			rs.close();
-			ps.close();
+			st.close();
+			
+			String query2 = "INSERT INTO farmer (email, pass) values ('" + User.getText() + "', '" + Pass.getText() + "');";
+			// prepare statement
+			Statement st2 = connection.createStatement();
+			st2.executeUpdate(query2);
+			Status.setText("Farmer added");
+			
+			st2.close();
+			connection.close();
 			
 		} catch (SQLException exception) {
 			System.out.println("Error while connecting to the database");
+			exception.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-			// END NEED TO UPDATE SECTION
 	}
 	
 	// Login to an account
