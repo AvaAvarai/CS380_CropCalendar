@@ -1,101 +1,28 @@
 package application;
 
 import javafx.fxml.FXML;
+
+import java.util.Calendar;
+
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class CalendarController {
 	
 	// All of the panes for the day slots
 	@FXML
-	private Pane D1;
-	@FXML
-	private Pane D2;
-	@FXML
-	private Pane D3;
-	@FXML
-	private Pane D4;
-	@FXML
-	private Pane D5;
-	@FXML
-	private Pane D6;
-	@FXML
-	private Pane D7;
-	@FXML
-	private Pane D8;
-	@FXML
-	private Pane D9;
-	@FXML
-	private Pane D10;
-	@FXML
-	private Pane D11;
-	@FXML
-	private Pane D12;
-	@FXML
-	private Pane D13;
-	@FXML
-	private Pane D14;
-	@FXML
-	private Pane D15;
-	@FXML
-	private Pane D16;
-	@FXML
-	private Pane D17;
-	@FXML
-	private Pane D18;
-	@FXML
-	private Pane D19;
-	@FXML
-	private Pane D20;
-	@FXML
-	private Pane D21;
-	@FXML
-	private Pane D22;
-	@FXML
-	private Pane D23;
-	@FXML
-	private Pane D24;
-	@FXML
-	private Pane D25;
-	@FXML
-	private Pane D26;
-	@FXML
-	private Pane D27;
-	@FXML
-	private Pane D28;
-	@FXML
-	private Pane D29;
-	@FXML
-	private Pane D30;
-	@FXML
-	private Pane D31;
-	@FXML
-	private Pane D32;
-	@FXML
-	private Pane D33;
-	@FXML
-	private Pane D34;
-	@FXML
-	private Pane D35;
-	@FXML
-	private Pane D36;
-	@FXML
-	private Pane D37;
-	@FXML
-	private Pane D38;
-	@FXML
-	private Pane D39;
-	@FXML
-	private Pane D40;
-	@FXML
-	private Pane D41;
-	@FXML
-	private Pane D42;
+	private HBox DaySlots;
 	
 	// The panel that lists the events of the selected day
 	@FXML
@@ -153,14 +80,20 @@ public class CalendarController {
 	@FXML
 	private PasswordField RegisterPass;
 	
+	private Calendar cal = Calendar.getInstance();
+	
+	private final String[] Months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+	
 	// Display previous month
 	public void PrevMonth (ActionEvent event) {
-		
+		cal.add(Calendar.MONTH, -1);
+		UpdateCalendar();
 	}
 	
 	// Display next month
 	public void NextMonth (ActionEvent event) {
-		
+		cal.add(Calendar.MONTH, 1);
+		UpdateCalendar();
 	}
 	
 	// Opens the panel displaying the events for the selected day
@@ -186,6 +119,80 @@ public class CalendarController {
 	// Login to an account
 	public void Login (ActionEvent event) throws Exception {
 		
+	}
+	
+	// Populates the app with correct data
+	public void UpdateCalendar () {
+		// Update the month label
+		MonthLabel.setText(Months[cal.get(Calendar.MONTH)]);
+		
+		// Update the days of the month
+		Calendar temp = (Calendar) cal.clone();
+		// Set temp to be the first day of the current month
+		temp.add(Calendar.DATE, -(temp.get(Calendar.DATE) - 1));
+		// Determine temp's day of the week
+		int dayOfWeek = temp.get(Calendar.DAY_OF_WEEK) - 1;
+		// Use an array to organize the day numbers within the calendars scope
+		int[] days = new int[42];
+		// Second array to determine if a day is of the current month or an adjacent one
+		boolean[] darken = new boolean[42];
+		// Loop through until the numbers in this current month are filled
+		int monthBorder = 0;
+		for (int i = 0; i < temp.getActualMaximum(Calendar.DATE); i++) {
+			days[dayOfWeek + i] = i + 1;
+			monthBorder = dayOfWeek + i + 1;
+		}
+		// Use monthBorder to determine where to fill the following month's days
+		days[monthBorder] = 1;
+		darken[monthBorder] = true;
+		// fill in the days proceeding the current month
+		for (int i = monthBorder + 1; i < 42; i++) {
+			days[i] = days[i - 1] + 1;
+			darken[i] = true;
+		}
+		// Go to last day of the previous month
+		temp.add(Calendar.MONTH, -1);
+		temp.add(Calendar.DATE, temp.getActualMaximum(Calendar.DATE) - 1);
+		// Fill in the days preceding the current month
+		if (dayOfWeek > 0) {
+			days[dayOfWeek - 1] = temp.get(Calendar.DATE);
+			darken[dayOfWeek - 1] = true;
+			for (int i = dayOfWeek - 2; i > -1; i--) {
+				days[i] = days[i + 1] - 1;
+				darken[i] = true;
+			}
+		}
+		// Apply the data from the array to the calendar
+		// Get the VBoxes for days of the week from the DaySlots HBox
+		int iter = 0;
+		for (Node i : DaySlots.getChildren()) {
+			if (i instanceof VBox) {
+				VBox j = (VBox) i;
+				for (Node k : j.getChildren()) {
+					if (k instanceof Pane) {
+						Pane daySlot = (Pane) k;
+						Rectangle background = (Rectangle) daySlot.getChildren().get(0);
+						if (darken[iter]) {
+							background.setFill(Color.LIGHTGRAY);
+						} else {
+							background.setFill(Color.WHITE);
+						}
+						Label dayNum = (Label) daySlot.getChildren().get(1);
+						dayNum.setText("" + days[iter]);
+						// Iterate by 7 after each Pane, moving down the VBox
+						iter += 7;
+					}
+				}
+			}
+			// 7*6 - 1 = 41, thus iterating by 1 after each VBox
+			iter -= 41;
+		}
+		
+	}
+	
+	// Runs on startup
+	public void initialize () {
+		UpdateCalendar();
 	}
 	
 }
