@@ -703,48 +703,27 @@
          <children>
             <Rectangle height="700.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#d0d0d0" height="450.0" layoutX="175.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="350.0" />
-            <TextField fx:id="LoginUser" layoutX="229.0" layoutY="299.0" promptText="Username">
+            <TextField fx:id="User" layoutX="229.0" layoutY="299.0" promptText="Username">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="LoginPass" layoutX="229.0" layoutY="375.0" promptText="Password">
+            <PasswordField fx:id="Pass" layoutX="229.0" layoutY="375.0" promptText="Password">
                <font>
                   <Font size="20.0" />
                </font>
             </PasswordField>
-            <Button fx:id="LoginBtn" layoutX="315.0" layoutY="464.0" mnemonicParsing="false" onAction="#Login" text="Login">
+            <Button fx:id="LoginBtn" layoutX="400.0" layoutY="465.0" mnemonicParsing="false" onAction="#Login" text="Login">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Label fx:id="LoginStatus" alignment="CENTER" layoutX="227.0" layoutY="150.0" prefHeight="100.0" prefWidth="250.0" text="Status" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane fx:id="RegisterPanel" prefHeight="700.0" prefWidth="700.0" visible="false">
-         <children>
-            <Rectangle height="700.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#d0d0d0" height="450.0" layoutX="175.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="350.0" />
-            <TextField fx:id="RegisterUser" layoutX="229.0" layoutY="299.0" promptText="Username">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
-            <PasswordField fx:id="RegisterPass" layoutX="229.0" layoutY="375.0" promptText="Password">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </PasswordField>
-            <Button fx:id="RegisterBtn" layoutX="301.0" layoutY="464.0" mnemonicParsing="false" onAction="#Login" text="Register">
+            <Button fx:id="RegisterBtn" layoutX="225.0" layoutY="465.0" mnemonicParsing="false" onAction="#Register" text="Register">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Label fx:id="RegisterStatus" alignment="CENTER" layoutX="227.0" layoutY="150.0" prefHeight="100.0" prefWidth="250.0" text="Status" textAlignment="CENTER">
+            <Label fx:id="Status" alignment="CENTER" layoutX="227.0" layoutY="150.0" prefHeight="100.0" prefWidth="250.0" text="Status" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

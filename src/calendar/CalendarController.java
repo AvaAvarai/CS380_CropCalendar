@@ -27,12 +27,9 @@ public class CalendarController {
 	// The panel that lists the events of the selected day
 	@FXML
 	private Pane EventPanel;
-	// The panel used to log in
+	// The panel used to log in and register
 	@FXML
 	private Pane LoginPanel;
-	// The panel used to register
-	@FXML
-	private Pane RegisterPanel;
 	
 	// The object within the panel that stores the events
 	@FXML
@@ -41,12 +38,9 @@ public class CalendarController {
 	// The label indicating which month is being displayed
 	@FXML
 	private Label MonthLabel;
-	// The label indicating if a login was successful
+	// The label indicating if a login/register was successful
 	@FXML
-	private Label LoginStatus;
-	// The label indicating if a register was successful
-	@FXML
-	private Label RegisterStatus;
+	private Label Status;
 	
 	// The buttons for changing the displayed month
 	@FXML
@@ -66,19 +60,13 @@ public class CalendarController {
 	@FXML
 	private Button RegisterBtn;
 	
-	// TextField for the login username input
+	// TextField for the login/register username input
 	@FXML
-	private TextField LoginUser;
-	// TextField for the register username input
-	@FXML
-	private TextField RegisterUser;
+	private TextField User;
 	
-	// TextField for the login password input
+	// TextField for the login/register password input
 	@FXML
-	private PasswordField LoginPass;
-	// TextField for the register password input
-	@FXML
-	private PasswordField RegisterPass;
+	private PasswordField Pass;
 	
 	private Calendar cal = Calendar.getInstance();
 	
