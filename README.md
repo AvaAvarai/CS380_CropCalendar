@@ -9,6 +9,6 @@ Database Schema:
 
 Database: farmers  
 Table:    farmer {  
-&bnsp&bnsp  user varchar(45),  
+&nbsp&nbsp&nbsp&nbspuser varchar(45),  
     pass varchar(45)  
 }
