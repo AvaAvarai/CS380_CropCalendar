@@ -114,7 +114,7 @@ public class CalendarController {
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmers", "root", "cs380");
 			
-			String query = "SELECT * from registration where email=?;";
+			String query = "SELECT * from registration where pass=?;";
 			
 			PreparedStatement ps = connection.prepareStatement(query);
 			
@@ -125,7 +125,7 @@ public class CalendarController {
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				if (rs.getString("password").equals(passID.getText())) {
+				if (rs.getString("password").equals(Pass.getText())) {
 					Status.setText("Login Success!");
 				}
 			}
