@@ -106,7 +106,30 @@ public class CalendarController {
 	
 	// Register an account
 	public void Register (ActionEvent event) throws Exception {
-		
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmers", "root", "cs380");
+			
+			String query = "UPDATE ? from farmer where pass=?;";
+			
+			PreparedStatement ps = connection.prepareStatement(query);
+			
+			ps.setString(1, User.getText());
+			
+			System.out.println(ps.toString());
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				if (rs.getString("password").equals(Pass.getText())) {
+					Status.setText("Register Success!");
+				}
+			}
+			rs.close();
+			ps.close();
+			
+		} catch (SQLException exception) {
+			System.out.println("Error while connecting to the database");
+		}
 	}
 	
 	// Login to an account
@@ -114,7 +137,7 @@ public class CalendarController {
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmers", "root", "cs380");
 			
-			String query = "SELECT * from registration where pass=?;";
+			String query = "SELECT * from farmer where pass=?;";
 			
 			PreparedStatement ps = connection.prepareStatement(query);
 			
