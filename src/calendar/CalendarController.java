@@ -1,4 +1,4 @@
-package application;
+package calendar;
 
 import javafx.fxml.FXML;
 
