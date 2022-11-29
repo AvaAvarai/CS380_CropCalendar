@@ -148,6 +148,7 @@ public class CalendarController {
 			while (rs.next()) {
 				if (rs.getString("pass").equals(Pass.getText())) {
 					Status.setText("Login Success!");
+					LoginPanel.setVisible(false);
 				}
 			}
 			rs.close();
