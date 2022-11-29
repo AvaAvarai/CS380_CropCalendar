@@ -89,18 +89,18 @@ public class CalendarController {
 	}
 	
 	// Opens the panel displaying the events for the selected day
-	public void OpenDayInfo (ActionEvent event) {
-		
+	public void OpenDayInfo (MouseEvent event) {
+		EventPanel.setVisible(true);
 	}
 	
 	// Closes the panel displaying events of the selected day
 	public void CloseDayInfo (ActionEvent event) {
-		
+		EventPanel.setVisible(false);
 	}
 	
 	// Adds an event to the selected day
 	public void AddEvent (ActionEvent event) {
-		
+		EventList.getPanes().add(new TitledPane("Event", new TextArea("Type here")));
 	}
 	
 	// Register an account
