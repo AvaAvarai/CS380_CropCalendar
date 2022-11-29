@@ -2,6 +2,11 @@ package calendar;
 
 import javafx.fxml.FXML;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Calendar;
 
 import javafx.collections.ObservableList;
@@ -106,14 +111,37 @@ public class CalendarController {
 	
 	// Login to an account
 	public void Login (ActionEvent event) throws Exception {
-		
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmers", "root", "cs380");
+			
+			String query = "SELECT * from registration where email=?;";
+			
+			PreparedStatement ps = connection.prepareStatement(query);
+			
+			ps.setString(1, User.getText());
+			
+			System.out.println(ps.toString());
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				if (rs.getString("password").equals(passID.getText())) {
+					Status.setText("Login Success!");
+				}
+			}
+			rs.close();
+			ps.close();
+			
+		} catch (SQLException exception) {
+			System.out.println("Error while connecting to the database");
+		}
 	}
 	
 	// Populates the app with correct data
 	public void UpdateCalendar () {
 		// Update the month label
 		MonthLabel.setText(Months[cal.get(Calendar.MONTH)]);
-		
+		LoginPanel.setVisible(true);
 		// Update the days of the month
 		Calendar temp = (Calendar) cal.clone();
 		// Set temp to be the first day of the current month
