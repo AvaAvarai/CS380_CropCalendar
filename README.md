@@ -7,8 +7,8 @@ A calendar designed for farmers that makes it easier to plan and assess crop rot
 
 Database Schema:
 
-Database: farmers
-Table:    farmer {
-    user varchar(45),
-    pass varchar(45)
+Database: farmers  
+Table:    farmer {  
+    user varchar(45),  
+    pass varchar(45)  
 }
