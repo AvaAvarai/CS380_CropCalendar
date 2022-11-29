@@ -10,5 +10,5 @@ Database Schema:
 Database: farmers  
 Table:    farmer {  
 &nbsp;&nbsp;&nbsp;&nbsp;user varchar(45),  
-    pass varchar(45)  
+&nbsp;&nbsp;&nbsp;&nbsp;pass varchar(45)  
 }
