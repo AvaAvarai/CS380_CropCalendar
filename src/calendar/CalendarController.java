@@ -93,7 +93,11 @@ public class CalendarController {
 	
 	// Opens the panel displaying the events for the selected day
 	public void OpenDayInfo (MouseEvent event) {
+<<<<<<< HEAD
 		EventPanel.setVisible(true);		
+=======
+		EventPanel.setVisible(true);
+>>>>>>> f33d9dc5336d8279cea500662c96eb3c33b85f27
 	}
 	
 	// Closes the panel displaying events of the selected day
