@@ -4,19 +4,21 @@ import javafx.fxml.FXML;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -90,72 +92,100 @@ public class CalendarController {
 	}
 	
 	// Opens the panel displaying the events for the selected day
-	public void OpenDayInfo (ActionEvent event) {
-		
+	public void OpenDayInfo (MouseEvent event) {
+		EventPanel.setVisible(true);		
 	}
 	
 	// Closes the panel displaying events of the selected day
 	public void CloseDayInfo (ActionEvent event) {
-		
+		EventPanel.setVisible(false);
 	}
 	
 	// Adds an event to the selected day
 	public void AddEvent (ActionEvent event) {
-		
+		EventList.getPanes().add(new TitledPane("Event", new TextArea("Type here")));
 	}
 	
 	// Register an account
 	public void Register (ActionEvent event) throws Exception {
 		try {
+			// open connection
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmers", "root", "cs380");
 			
-			// need to add a select query first to check for existence of user to conditionally registering user
-			
-			String query = "UPDATE ? from farmer where pass=?;";
-			
-			PreparedStatement ps = connection.prepareStatement(query);
-			
-			ps.setString(1, User.getText());
-			
-			ResultSet rs = ps.executeQuery();
+			// check for former user
+			String query = "SELECT * FROM farmer";
+
+			// prepare statement
+			Statement st = connection.createStatement();
+			ResultSet rs = st.executeQuery(query);
 			
 			while (rs.next()) {
-				if (rs.getString("name").equals(Pass.getText())) {
-					Status.setText("Register Success!");
+				String email = rs.getString("email");
+				
+				if (User.getText().equals(email)) {
+					Status.setText("User already exists");
+					return;
 				}
 			}
+			
 			rs.close();
-			ps.close();
+			st.close();
+			
+			String query2 = "INSERT INTO farmer (email, pass) values ('" + User.getText() + "', '" + Pass.getText() + "');";
+			// prepare statement
+			Statement st2 = connection.createStatement();
+			st2.executeUpdate(query2);
+			Status.setText("Farmer added");
+			
+			st2.close();
+			connection.close();
 			
 		} catch (SQLException exception) {
 			System.out.println("Error while connecting to the database");
+			exception.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
 	// Login to an account
 	public void Login (ActionEvent event) throws Exception {
 		try {
+			// open connection
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmers", "root", "cs380");
 			
-			String query = "SELECT * from farmer where pass=?;";
+			// select users
+			String query = "SELECT * FROM farmer";
 			
-			PreparedStatement ps = connection.prepareStatement(query);
+			// prepare statement
+			Statement st = connection.createStatement();
+			ResultSet rs = st.executeQuery(query);
 			
-			ps.setString(1, User.getText());
-			
-			ResultSet rs = ps.executeQuery();
-			
+			// compare email/pass pairs
 			while (rs.next()) {
-				if (rs.getString("pass").equals(Pass.getText())) {
-					Status.setText("Login Success!");
+				String email = rs.getString("email");
+				String password = rs.getString("pass");
+				
+				// user found
+				if (User.getText().equals(email) && Pass.getText().equals(password)) {
+					connection.close();
+					Status.setText("Success");
 					LoginPanel.setVisible(false);
+					return;
 				}
 			}
+			
+            // no user found
+			Status.setText("Invalid Credentials");
 			rs.close();
-			ps.close();
+			st.close();
+			connection.close();
 			
 		} catch (SQLException exception) {
 			System.out.println("Error while connecting to the database");
+			exception.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -163,7 +193,7 @@ public class CalendarController {
 	public void UpdateCalendar () {
 		// Update the month label
 		MonthLabel.setText(Months[cal.get(Calendar.MONTH)]);
-		LoginPanel.setVisible(true);
+		
 		// Update the days of the month
 		Calendar temp = (Calendar) cal.clone();
 		// Set temp to be the first day of the current month
@@ -231,6 +261,7 @@ public class CalendarController {
 	// Runs on startup
 	public void initialize () {
 		UpdateCalendar();
+		LoginPanel.setVisible(true);
 	}
 	
 }
